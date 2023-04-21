@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  #__next {
+    @apply h-full;
+  }
+  html,
+  body,
+  main {
+    @apply h-full text-primary;
+  }
+
+  a{
+    @apply hover:border-b-2 transition-all ;
+  }
+
+  /* Buttons */
+  .btn-base {
+    @apply inline-flex flex-row justify-center items-center border-3 font-medium shadow-sm outline-transparent focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300;
+  }
+
+  .btn-xs {
+    @apply btn-base px-2 py-1 text-xs;
+  }
+
+  .btn-sm {
+    @apply btn-base px-2 py-1 text-sm;
+  }
+
+  .btn-md {
+    @apply btn-base px-2.5 py-1.5 text-sm;
+  }
+
+  .btn-lg {
+    @apply btn-base px-3 py-2 text-base;
+  }
+
+  .btn-xl {
+    @apply btn-base px-3.5 py-2.5 text-base;
+  }
+
+  .btn-icon-sm {
+    @apply btn-base p-1;
+  }
+
+  .btn-icon-md {
+    @apply btn-base p-1.5;
+  }
+
+  .btn-icon-lg {
+    @apply btn-base p-2;
+  }
+
+  .btn-primary {
+    @apply border-cta-primary-stroke text-cta-primary-text-default bg-cta-primary-background-default hover:bg-cta-primary-background-hover hover:text-cta-primary-text-hover uppercase tracking-wide;
+  }
+  
+
+  .btn-secondary {
+    @apply border-cta-secondary-stroke text-cta-secondary-text-default bg-cta-secondary-background-default hover:bg-cta-secondary-background-hover hover:text-cta-secondary-text-hover uppercase tracking-wide;
+  }
+
+  .btn-destroy {
+    @apply border-red-800 text-white bg-red-600 hover:bg-red-700;
+  }
+
+  .input-base{
+    @apply bg-secondary transition-all block w-full border-0 py-1.5 shadow-sm ring-2 ring-inset ring-primary placeholder:text-primary-hover focus:ring focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6;
+  }
+
+  .checkbox-base{
+    @apply h-4 w-4; /* size */
+    @apply dark:bg-secondary text-primary dark:text-secondary; /* base state */ 
+    @apply border-none ring-2 ring-primary checked:ring-primary checked:hover:ring-primary focus:ring-primary focus:ring-offset-0; /* border */
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary transition-all duration-300;
+  }
+}
+
+:root {
+    /* Core tokens */
+    --color-gray: #222222;
+  
+    /* Core tokens */
+    --color-primary: var(--color-gray);
+    --color-primary-hover: theme(colors.neutral.700);
+    --color-secondary: theme(colors.white);
+    --color-secondary-hover: theme(colors.neutral.100);
+
+  /* Text colors */
+  --color-text-primary: var(--color-primary);
+  --color-text-secondary: var(--color-secondary);
+  --color-text-tertiary: var(--color-tertiary);
+
+  /* Semantic tokens */
+  --color-background-l1: theme(colors.zinc.100);
+  --color-background-l2: theme(colors.zinc.50);
+  --color-background-l3: theme(colors.white);
+  --color-border-primary: var(--color-primary);
+  --color-border-secondary: var(--color-secondary);
+
+  /* Component tokens */
+  --color-cta-primary-background-default: var(--color-primary);
+  --color-cta-primary-background-hover: var(--color-primary-hover);
+  --color-cta-primary-text-default:  var(--color-secondary);
+  --color-cta-primary-text-hover: var(--color-secondary);
+  --color-cta-primary-stroke: var(--color-primary);
+
+  --color-cta-secondary-background-default: var(--color-secondary);
+  --color-cta-secondary-background-hover: var(--color-secondary-hover);
+  --color-cta-secondary-text-default: var(--color-primary);
+  --color-cta-secondary-text-hover:  var(--color-primary);
+  --color-cta-secondary-stroke: var(--color-primary);
+}
+
+.dark {
+   /* Core tokens */
+  --color-primary: theme(colors.white);
+  --color-primary-hover:  theme(colors.neutral.300);
+  --color-secondary: var(--color-gray); 
+  --color-secondary-hover: theme(colors.neutral.700);
+
+  /* Core tokens */
+  --color-background-l1: #1c1d1f;
+  --color-background-l2: #1f2023;
+  --color-background-l3: #27282b;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}

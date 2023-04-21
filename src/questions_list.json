@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "options": ["Paris", "Berlin", "London"],
+    "correct": 0
+  },
+  {
+    "id": 2,
+    "question": "What is the largest ocean?",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean"],
+    "correct": 2
+  }
+]
