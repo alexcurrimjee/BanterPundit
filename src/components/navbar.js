@@ -66,7 +66,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='hidden relative lg:inset-y-0 lg:z-50 lg:flex lg:w-1/4 lg:flex-col'>
+      <div className='hidden relative lg:inset-y-0 lg:z-50 lg:flex lg:w-1/3 lg:flex-col'>
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className='flex grow flex-col gap-y-5 overflow-y-auto border-r-3 p-6'>
           <div className='flex h-16 shrink-0 items-center'>
@@ -240,51 +240,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      <Transition appear show={isSignOutOpen} as={Fragment}>
-        <Dialog as='div' className='relative z-10' onClose={closeModal}>
-          <Transition.Child
-            as={Fragment}
-            enter='ease-out duration-300'
-            enterFrom='opacity-0'
-            enterTo='opacity-100'
-            leave='ease-in duration-200'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'>
-            <div className='fixed inset-0 bg-black bg-opacity-25' />
-          </Transition.Child>
-
-          <div className='fixed inset-0 overflow-y-auto'>
-            <div className='flex min-h-full items-center justify-center p-4 text-center'>
-              <Transition.Child
-                as={Fragment}
-                enter='ease-out duration-300'
-                enterFrom='opacity-0 scale-95'
-                enterTo='opacity-100 scale-100'
-                leave='ease-in duration-200'
-                leaveFrom='opacity-100 scale-100'
-                leaveTo='opacity-0 scale-95'>
-                <Dialog.Panel className='w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all'>
-                  <Dialog.Title as='h3' className='text-lg font-medium leading-6 text-gray-900'>
-                    Are you sure you want to Sign out?
-                  </Dialog.Title>
-                  <div className='mt-2'>
-                    <p className='text-sm text-gray-500'>Make sure you save any changes before you sign out.</p>
-                  </div>
-
-                  <div className='mt-6 flex flex-row gap-4'>
-                    <button type='button' className='btn-md btn-secondary' onClick={closeModal}>
-                      Cancel
-                    </button>
-                    <button type='button' className='btn-md btn-destroy' onClick={signOut}>
-                      Yes, Please Sign me out
-                    </button>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition>
+      
     </>
   );
 };

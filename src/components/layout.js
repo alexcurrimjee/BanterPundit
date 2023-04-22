@@ -1,4 +1,5 @@
 import Navbar from './navbar';
+import Footer from './footer';
 import { useUserContext } from '../lib/UserContext';
 
 const LoadingScreen = () => (
@@ -16,11 +17,14 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <div className='flex flex-1 my-4 mx-8 border-3'>
+    <div className="flex flex-1 flex-col my-4 mx-8 gap-2">
+      <div className='flex flex-1 border-3'>
         <Navbar />
         <main className='flex flex-grow py-10'>
           <div className='px-4 sm:px-6 lg:px-8 w-full'>{children}</div>
         </main>
+      </div>
+      <Footer />
       </div>
     </>
   );

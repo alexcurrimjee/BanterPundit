@@ -7,14 +7,14 @@ const Question = ({ question, options, onSelect }) => {
       <div className='flex flex-row space-x-4 justify-between'>
         {options.map((option, index) => (
           <button
-            className='px-4 py-4 
+            className='group relative
+            px-4 py-4 
             border-3 border-cta-secondary-stroke
-            text-cta-secondary-text
-            shadow-sm flex-1 text-xl 
-            bg-cta-secondary-background-default hover:bg-cta-secondary-background-hover'
+            shadow-sm flex-1 text-xl'
             key={index}
             onClick={() => onSelect(index)}>
-            {option}
+            <span className='relative z-10'>{option}</span>
+            <div className='z-0 absolute inset-0 test w-full h-full bg-secondary group-hover:bg-primary opacity-40 transition-all duration-200'></div>
           </button>
         ))}
       </div>
