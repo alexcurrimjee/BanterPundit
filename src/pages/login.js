@@ -47,12 +47,16 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className='flex min-h-full bg-secondary'>
+      <div className='flex flex-1 min-h-full bg-secondary'>
         <div className='m-6 flex w-full'>
           <div className='flex flex-1 flex-col justify-center border-3 h-full'>
             <div className='mx-auto w-full flex flex-col flex-1 justify-center py-8 px-14 border-b-3'>
               <div>
-                <Image className='h-12 w-auto' width='48' height='48' src='/BP.png' alt='Your Company' />
+                <svg className='text-primary w-20 h-20' xmlns='http://www.w3.org/2000/svg' width='136.66mm' height='136.26mm' viewBox='0 0 387.38 386.24'>
+                  <path fill="currentColor" d='m102.03,138.08c-2.45,5.1-5.02,9.85-7.06,14.83-7.64,18.64-9.85,37.96-6.01,57.74,2.62,13.51,11.02,22.5,24.22,26.23,13.85,3.92,25.89.12,35.4-10.69,15.11-17.19,26.75-36.64,36.38-57.33,10.36-22.26,18.14-45.37,22.63-69.54.47-2.53.72-5.11,1.21-7.64.33-1.69-.39-2.15-1.92-2.37-12.65-1.83-25.21-1.5-37.7,1.25-23.69,5.22-43.21,17.23-58.64,35.92-1.31,1.59-2.5,3.27-3.87,5.07-6.07-4.57-11.09-9.84-15.34-15.84-27.92-39.38-11-95.06,34.57-110.9,28.37-9.86,54.81-4.61,77.09,16.22,10.45,9.77,15.31,22.77,17.76,36.66,3.24,18.4,1.69,36.67-2.04,54.78-6.17,29.98-17.02,58.22-32.84,84.45-8.94,14.82-18.4,29.31-30.28,42.06-12.13,13.02-25.84,23.84-41.71,32.09-10.01,5.21-20.2,9.4-31.49,10.47-21.87,2.09-41.28-3.97-57.56-18.71C5.6,245.42-2.45,223.4.64,197.71c3.66-30.39,26.4-55.46,56.26-62.76,14.43-3.52,28.71-2.78,42.75,2.09.83.29,1.62.7,2.39,1.03Z' />
+                  <path fill="currentColor" d='m242.81,101.93c-.52,3.48-1.09,6.73-1.49,9.99-3.18,25.97-.85,51.3,9.03,75.71,3.89,9.61,8.94,18.58,15.17,26.87,4.21,5.6,10.66,7.95,16.95,6.25,6.73-1.83,11.18-7.03,12.09-14.04,2.09-16.27.75-32.21-4.59-47.75-.58-1.69-.16-2.53,1.25-3.46,37.46-24.55,87.16-3.53,95.1,40.13,5.92,32.57-13.25,63.06-44.91,71.21-18.42,4.74-35.89,1.72-51.38-9.24-19.87-14.06-36.19-31.58-47.89-53.11-11.11-20.46-16.22-42.42-16.47-65.62-.25-22.85,3.64-45.04,10.5-66.76,6.42-20.33,27.38-37.55,53.99-34.31,20.65,2.51,40.94,18.95,43.75,44.6,3.28,29.86-20.14,55.78-50.12,55.77-2.47,0-4.01-.77-5.42-2.94-8.54-13.08-19.42-23.81-32.79-31.96-.5-.3-.99-.61-1.5-.89-.21-.12-.46-.17-1.26-.46Z' />
+                  <path fill="currentColor" d='m263.3,266.91c-43.07-22.07-95.75-11.44-124.55,15.68,6.05,2.68,11.74,5.59,17.7,7.75,16.75,6.07,34.01,7.59,51.61,4.69,1.7-.28,2.53.28,3.36,1.69,12.77,21.58,9.92,50.26-6.94,69.33-29.38,33.24-84.16,24-100.25-17.3-9.12-23.41-4.59-44.83,12.29-63.66,8.55-9.53,17.75-18.25,28.56-25.15,25.5-16.27,53.3-23.43,83.45-20.26,24.76,2.6,46.49,12.33,64.71,29.42,13.78,12.92,17.39,33.39,8.72,48.87-7.29,13.02-18.87,18.83-33.44,19.68-22.28,1.3-41.68-18.24-39.75-42.22.03-.33.07-.66.08-1,.06-3.67,1.61-5.77,5.27-7.3,10.37-4.32,19.52-10.7,27.78-18.32.37-.34.72-.7,1.03-1.08.14-.18.19-.44.34-.82Z' />
+                </svg>
                 <h2 className='mt-6 text-2xl xl:text-4xl font-medium tracking-tight'>Welcome to Banter Pundits</h2>
                 <p className='mt-2 text-xl text-body'>Sign in to access your account and start bantering</p>
               </div>
@@ -98,12 +102,7 @@ const LoginPage = () => {
 
                     <div className='flex items-center justify-between'>
                       <div className='flex items-center'>
-                        <input
-                          id='remember-me'
-                          name='remember-me'
-                          type='checkbox'
-                          className='checkbox-base'
-                        />
+                        <input id='remember-me' name='remember-me' type='checkbox' className='checkbox-base' />
                         <label htmlFor='remember-me' className='ml-2 block text-sm text-title'>
                           Remember me
                         </label>
@@ -128,7 +127,7 @@ const LoginPage = () => {
             </div>
             <div className='mx-auto w-full py-8 px-14'>
               <div className='w-full text-center flex flex-col justify-center items-center gap-4'>
-                <span className='bg-l3 px-2 '>Or sign in with</span>
+                <span className=' px-2 '>Or sign in with</span>
                 <button onClick={handleSignInGoogle} className='btn-lg btn-secondary w-1/3'>
                   <span className='sr-only'>Sign up with Google</span>
                   <svg className='h-5 w-5' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20'>

@@ -57,9 +57,9 @@ const SignUpPage = () => {
 
   return (
     <>
-      <div className='flex min-h-full bg-l1'>
+      <div className='flex min-h-full '>
         <div className='flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:px-20 xl:px-24'>
-          <div className='mx-auto w-full max-w-lg bg-l3 shadow-sm p-10 border rounded-xl'>
+          <div className='mx-auto w-full max-w-lg  shadow-sm p-10 border rounded-xl'>
             {!signUp ? (
               <>
                 <div>
@@ -157,7 +157,7 @@ const SignUpPage = () => {
                       <div className='w-full border-t border-gray-300' />
                     </div>
                     <div className='relative flex justify-center text-sm'>
-                      <span className='bg-l3 px-2 '>Or sign in with</span>
+                      <span className=' px-2 '>Or sign in with</span>
                     </div>
                   </div>
 

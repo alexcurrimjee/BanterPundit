@@ -39,12 +39,12 @@ const Questions = () => {
 
   return (
     <Layout>
-      <h1 className='max-w-lg text-3xl font-medium tracking-tight sm:text-4xl'>Hi {userState?.firstName},</h1>
+      <h1 className='max-w-lg text-3xl font-medium sm:text-4xl'>Hi {userState?.firstName},</h1>
       <p className='mt-2 text-lg leading-8 text-body'>Here is your question of the day: </p>
       <div className='mt-6'>
         {quizCompleted ? (
-          <div className='w-full border py-10 px-6 rounded-xl bg-background-l3 '>
-            <h2 className='text-center text-2xl font-medium tracking-tight sm:text-3xl'>Thanks for playing today!</h2>
+          <div className='w-full border py-10 px-6'>
+            <h2 className='text-center text-2xl font-medium sm:text-3xl'>Thanks for playing today!</h2>
             <p className='text-center mt-6 text-lg leading-8 text-body'>Your score: {score}</p>
           </div>
         ) : (

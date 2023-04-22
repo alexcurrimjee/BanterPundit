@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer components {
   #__next {
@@ -9,7 +10,7 @@
   html,
   body,
   main {
-    @apply h-full text-primary;
+    @apply h-full text-primary font-sans tracking-wide bg-secondary;
   }
 
   a{
