@@ -56,17 +56,19 @@ const Footer = () => {
     <>
       <div className='flex flex-row justify-between'>
         <Menu as='div' className='relative'>
-          <Menu.Button className='relative group flex justify-between items-center px-6 py-3 mt-3 text-sm font-semibold leading-6 hover:bg-cta-secondary-background-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
-            <div className='items-center flex gap-x-4'>
-              <span className='inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary'>
-                <span className='font-medium leading-none text-secondary uppercase'>{userState?.firstName.charAt(0)}</span>
+          <Menu.Button className='relative group flex justify-between items-center text-sm font-semibold leading-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
+            <div className='items-center flex gap-x-2'>
+              <span className='inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary'>
+                <span className='font-medium text-xs leading-none text-secondary uppercase'>{userState?.firstName.charAt(0)}</span>
               </span>
               <span className='sr-only'>Your profile</span>
-              <span aria-hidden='true'>{userState?.firstName}</span>
+              <span className='group-hover:underline' aria-hidden='true'>
+                {userState?.firstName}
+              </span>
             </div>
             <ChevronRightIcon
               className={`${open ? '' : 'text-opacity-70'}
-                  ml-2 h-5 w-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-opacity-80`}
+                  ml-2 h-3 w-3 text-primary transition duration-150 ease-in-out group-hover:text-opacity-80`}
               aria-hidden='true'
             />
           </Menu.Button>
@@ -79,34 +81,26 @@ const Footer = () => {
             leave='transition ease-in duration-75'
             leaveFrom='transform opacity-100 scale-100'
             leaveTo='transform opacity-0 scale-95'>
-            <Menu.Items className='overflow-hidden absolute bottom-4 left-full ml-4 z-10 w-full transform mt-2 origin-bottom-left divide-y divide-gray-300 shadow-lg border-3 focus:outline-none'>
-              <div className='px-1 py-1 '>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${active ? 'bg-cta-secondary-background-default' : 'text-cta-secondary-text'} group flex w-full items-center p-3`}>
-                      <UserCircleIcon className='mr-2 h-5 w-5 text-icon group-hover: group-hover:' />
-                      Your Profile
-                    </button>
-                  )}
-                </Menu.Item>
-              </div>
-              <div className='px-1 py-1 bg-white'>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={openModal}
-                      className={`${active ? 'bg-cta-secondary-background-default  ' : 'text-cta-secondary-text'} group flex w-full items-center p-3`}>
-                      <ArrowRightOnRectangleIcon className='mr-2 h-5 w-5 text-icon' />
-                      Sign Out
-                    </button>
-                  )}
-                </Menu.Item>
-              </div>
+            <Menu.Items className='overflow-hidden absolute bottom-4 left-full ml-4 z-10 transform mt-2 origin-bottom-left divide-y divide-gray-300 shadow-lg border-3 focus:outline-none'>
+              <Menu.Item>
+                <button className='text-lg bg-cta-secondary-background-default hover:bg-cta-secondary-background-hover group inline-flex whitespace-nowrap w-full items-center p-6'>
+                  <UserCircleIcon className='mr-2 h-6 w-6 text-icon flex-shrink-0' />
+                  Your Profile
+                </button>
+              </Menu.Item>
+
+              <Menu.Item>
+                <button
+                  onClick={openModal}
+                  className='text-lg bg-cta-secondary-background-default hover:bg-cta-secondary-background-hover group inline-flex whitespace-nowrap w-full items-center p-6'>
+                  <ArrowRightOnRectangleIcon className='mr-2 h-6 w-6 text-icon flex-shrink-0' />
+                  Sign Out
+                </button>
+              </Menu.Item>
             </Menu.Items>
           </Transition>
         </Menu>
-        <Switch.Group as='div' className='flex items-center'>
+        {/* <Switch.Group as='div' className='flex items-center'>
           <Switch
             checked={darkMode}
             onChange={toggleDarkMode}
@@ -139,9 +133,15 @@ const Footer = () => {
             </span>
           </Switch>
           <Switch.Label as='span' className='ml-3 text-sm '>
-            Theme
+            Switch theme
           </Switch.Label>
-        </Switch.Group>
+        </Switch.Group> */}
+        <button onClick={toggleDarkMode} className="flex flex-row items-center gap-4">
+          <div className=' relative h-6 w-6 rounded-full ring ring-primary bg-secondary dark:bg-primary'>
+            <div className='absolute h-6 w-3 bg-primary dark:bg-secondary dark:rotate-180 rounded-tl-full rounded-bl-full transform transition duration-500 ease-bounce origin-right'></div>
+          </div>
+          <span className="text-sm">Switch Theme</span>
+        </button>
       </div>
       <Transition appear show={isSignOutOpen} as={Fragment}>
         <Dialog as='div' className='relative z-10' onClose={closeModal}>
@@ -153,10 +153,10 @@ const Footer = () => {
             leave='ease-in duration-200'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'>
-            <div className='fixed inset-0 bg-black bg-opacity-25' />
+            <div className='fixed inset-0 bg-black dark:bg-white bg-opacity-25 dark:bg-opacity-40' />
           </Transition.Child>
 
-          <div className='fixed inset-0 overflow-y-auto'>
+          <div className='fixed inset-0 overflow-y-auto font-sans'>
             <div className='flex min-h-full items-center justify-center p-4 text-center'>
               <Transition.Child
                 as={Fragment}
@@ -166,12 +166,10 @@ const Footer = () => {
                 leave='ease-in duration-200'
                 leaveFrom='opacity-100 scale-100'
                 leaveTo='opacity-0 scale-95'>
-                <Dialog.Panel className='w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all'>
-                  <Dialog.Title as='h3' className='text-lg font-medium leading-6 text-gray-900'>
-                    Are you sure you want to Sign out?
-                  </Dialog.Title>
+                <Dialog.Panel className='w-full max-w-lg transform overflow-hidden border-3 bg-secondary p-8 text-left align-middle shadow-xl transition-all'>
+                  <Dialog.Title className='text-2xl font-medium leading-6 text-primary font-sans'>Are you sure you want to Sign out?</Dialog.Title>
                   <div className='mt-2'>
-                    <p className='text-sm text-gray-500'>Make sure you save any changes before you sign out.</p>
+                    <p className='text-primary'>Make sure you save any changes before you sign out.</p>
                   </div>
 
                   <div className='mt-6 flex flex-row gap-4'>

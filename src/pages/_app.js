@@ -35,7 +35,12 @@ function MyApp({ Component, pageProps }) {
     <AuthProvider>
       <UserProvider>
         <ThemeProvider>
-          <div className={`${helvetica.variable} font-sans h-full flex`}>
+          <style jsx global>{`
+            :root {
+              --font-helvetica: ${helvetica.style.fontFamily};
+            }
+          `}</style>
+          <div className='font-sans h-full flex'>
             <Component {...pageProps} />
           </div>
         </ThemeProvider>

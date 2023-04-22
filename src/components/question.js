@@ -14,7 +14,7 @@ const Question = ({ question, options, onSelect }) => {
             key={index}
             onClick={() => onSelect(index)}>
             <span className='relative z-10'>{option}</span>
-            <div className='z-0 absolute inset-0 test w-full h-full bg-secondary group-hover:bg-primary opacity-40 transition-all duration-200'></div>
+            <div className='z-0 absolute inset-0 line-pattern w-full h-full bg-secondary group-hover:bg-primary opacity-40 transition-all duration-200'></div>
           </button>
         ))}
       </div>

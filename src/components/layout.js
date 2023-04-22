@@ -17,7 +17,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-    <div className="flex flex-1 flex-col my-4 mx-8 gap-2">
+    <div className="flex flex-1 flex-col my-4 mx-8 gap-4">
       <div className='flex flex-1 border-3'>
         <Navbar />
         <main className='flex flex-grow py-10'>
