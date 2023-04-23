@@ -1,14 +1,13 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useRouter } from 'next/router';
 
-import { Switch, Menu, Transition, Dialog } from '@headlessui/react';
+import { Transition, Dialog } from '@headlessui/react';
 
 import { auth, GoogleProvider } from '../lib/firebase';
 import { useAuth } from '../lib/useAuth';
 import { useSignInWithEmailAndPassword, useDeleteUser } from 'react-firebase-hooks/auth';
 import { signInWithPopup } from 'firebase/auth';
 import { LockClosedIcon } from '@heroicons/react/24/solid';
-
 
 import Image from 'next/image';
 
@@ -27,8 +26,8 @@ const LoginPage = () => {
     router.push('/');
   }
 
-    function closeModal() {
-      setIsSignUpOpen(false);
+  function closeModal() {
+    setIsSignUpOpen(false);
   }
 
   function openModal() {
@@ -62,22 +61,20 @@ const LoginPage = () => {
 
   const handleSignPassword = (e) => {
     e.preventDefault();
-    if(signupPassword === 'password') {
+    if (signupPassword === 'password') {
       router.push('/signup');
-    }
-    else{
+    } else {
       closeModal();
       setSignupError(true);
     }
-  }
-
+  };
 
   return (
     <>
       <div className='flex flex-1 min-h-full bg-secondary'>
-        <div className='m-6 flex w-full'>
+        <div className='m-4 lg:m-6 flex w-full'>
           <div className='flex flex-1 flex-col border-3 h-full'>
-            <div className='w-full flex-1 flex py-10 px-14 border-b-3'>
+            <div className='w-full flex-1 flex p-6 lg:py-10 lg:px-14 border-b-3'>
               <div className='mx-auto flex flex-col flex-1 justify-center space-y-6 max-w-md'>
                 <div>
                   <svg
@@ -182,12 +179,12 @@ const LoginPage = () => {
                 </div>
               </div>
             </div>
-            <button onClick={openModal} className='w-full relative group'>
+            <button onClick={openModal} className='w-full relative group focus-ring'>
               <div className='absolute inset-0 plus-pattern w-full h-full bg-secondary group-hover:bg-primary opacity-50 transition-all duration-200'></div>
               <div className='py-4 max-w-md mx-auto w-full text-center flex flex-row justify-center items-center gap-2'>
-                <LockClosedIcon  className='h-4 w-4' aria-hidden='true' />
+                <LockClosedIcon className='h-4 w-4' aria-hidden='true' />
                 <span>Have been invited? Sign up here</span>
-                {signupError && <p className="text-red-600">Wrong password</p>}
+                {signupError && <p className='text-red-600'>Wrong password</p>}
               </div>
             </button>
           </div>
@@ -222,29 +219,29 @@ const LoginPage = () => {
                 <Dialog.Panel className='w-full max-w-lg transform overflow-hidden border-3 bg-secondary p-8 text-left align-middle shadow-xl transition-all'>
                   <Dialog.Title className='text-2xl font-medium leading-6 text-primary font-sans'>Enter the password here</Dialog.Title>
                   <form action='#' method='POST' onSubmit={handleSignPassword} className='mt-4 flex flex-col space-y-4'>
-                  <div>
-                    <label htmlFor='signup' className='block text-sm font-medium leading-6 text-title'>
-                      Password
-                    </label>
-                    <div className='mt-1'>
-                      <input
-                        id='signup'
-                        name='signup'
-                        type='text'
-                        autoComplete='signup'
-                        required
-                        value={signupPassword}
-                        onChange={(e) => setSignupPassword(e.target.value)}
-                        className='input-base'
-                      />
+                    <div>
+                      <label htmlFor='signup' className='block text-sm font-medium leading-6 text-title'>
+                        Password
+                      </label>
+                      <div className='mt-1'>
+                        <input
+                          id='signup'
+                          name='signup'
+                          type='text'
+                          autoComplete='signup'
+                          required
+                          value={signupPassword}
+                          onChange={(e) => setSignupPassword(e.target.value)}
+                          className='input-base'
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <button type='submit' className='mt-2 w-full btn-lg btn-primary'>
-                      {loading ? <span className='loader'></span> : <span>Get started</span>}
-                    </button>
-                  </div>
-                </form>
+                    <div>
+                      <button type='submit' className='mt-2 w-full btn-lg btn-primary'>
+                        {loading ? <span className='loader'></span> : <span>Get started</span>}
+                      </button>
+                    </div>
+                  </form>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

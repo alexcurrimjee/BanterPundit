@@ -12,13 +12,19 @@
     @apply h-full text-primary font-sans tracking-wide bg-secondary;
   }
 
+  
+
+  .focus-ring{
+    @apply outline-none focus:outline-none focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-gray-400;
+  }
+
   a{
-    @apply hover:border-b-2 transition-all ;
+    @apply hover:border-b-2 transition-all focus-ring;
   }
 
   /* Buttons */
   .btn-base {
-    @apply inline-flex flex-row justify-center items-center border-3 font-medium shadow-sm outline-transparent focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300;
+    @apply inline-flex flex-row justify-center items-center border-3 font-medium shadow-sm focus-ring transition-all duration-300;
   }
 
   .btn-xs {
@@ -67,14 +73,14 @@
   }
 
   .input-base{
-    @apply bg-secondary transition-all block w-full border-0 py-1.5 shadow-sm ring-2 ring-inset ring-primary placeholder:text-primary-hover focus:ring focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6;
+    @apply bg-secondary transition-all block w-full border-3 border-primary py-1.5 shadow-sm placeholder:text-primary-hover focus:border-3 focus:border-primary focus:ring-0 focus:outline focus:outline-offset-2 focus:outline-gray-400 sm:text-sm sm:leading-6;
   }
 
   .checkbox-base{
     @apply h-4 w-4; /* size */
     @apply dark:bg-secondary text-primary dark:text-secondary; /* base state */ 
     @apply border-none ring-2 ring-primary checked:ring-primary checked:hover:ring-primary focus:ring-primary focus:ring-offset-0; /* border */
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary transition-all duration-300;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-400 transition-all duration-300;
   }
 
   .line-pattern{

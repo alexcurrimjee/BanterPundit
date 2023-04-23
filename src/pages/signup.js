@@ -201,7 +201,7 @@ const SignUpPage = () => {
 
       <div className='flex flex-1 min-h-full bg-secondary'>
         <div className='m-6 flex w-full'>
-          <div className='flex flex-1 flex-col justify-center border-3 h-full'>
+          <div className='flex flex-1 flex-col justify-center border-3 p-6 lg:py-10 lg:px-14  h-full'>
             {!signUp ? (
               <div className='mx-auto flex flex-col flex-1 justify-center space-y-6 max-w-md'>
                 <div>
@@ -316,7 +316,7 @@ const SignUpPage = () => {
                 </div>
 
                 <div className='mt-4 w-full text-center flex flex-col justify-center items-center gap-4'>
-                  <span className=' px-2 '>Or sign in with</span>
+                  <span className=' px-2 '>Or sign up with</span>
                   <button onClick={handleSignUpWithGoogle} className='btn-lg btn-secondary w-1/3'>
                     <span className='sr-only'>Sign up with Google</span>
                     <svg className='h-5 w-5 ' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20'>
